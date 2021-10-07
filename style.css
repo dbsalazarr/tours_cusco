@@ -1,0 +1,71 @@
+/*
+Theme name: New Tours Cusco Machupicchu
+Theme URI:  https://www.machupicchutourscusco.com
+Author:  Bremdow Salazar Roa
+Author URI: https://bremdows.wordpress.com
+Description: Pleamos el viaje de tus sueños
+Version: 1.0
+License:  GNU
+License URI: https://www.google.com
+Tags: Travel, dream Travel, Tours, Perú, Machu Picchu;
+Text Domain: toursnew
+*/
+
+/*
+	 DEFINIENDO LAS VARIABLES GENERALES
+*/
+:root{
+
+	/* COLORES */
+
+	--colorPrimario: ;
+	--colorSecundario: ;
+	--colorTerciario: ;
+	--negro: #000;
+	--blanco:  #fff;
+
+	/* FUENTES */ 
+	--fuentePrincipal: ;
+	--fuenteSecundario: ;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html{
+	box-sizing: border-box;
+}
+
+html,
+body{
+	font-size: 62.5%; /* Now 1rem is equal to 10px */
+}
+
+body{
+	font:  normal normal 16px "Open Sans", Arial, Helvetica, Sans-serif;
+}
+/*
+	ESTILOS GENERALES
+*/
+a{
+	text-decoration: none;
+	color: var(--negro);
+}
+ul{
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+}
+/* 
+	UTILITARIOS
+*/
+.boton{
+
+}
+
+
+/* 
+	CABECERA
+*/
