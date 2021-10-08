@@ -8,7 +8,7 @@ Version: 1.0
 License:  GNU
 License URI: https://www.google.com
 Tags: Travel, dream Travel, Tours, Perú, Machu Picchu;
-Text Domain: toursnew
+Text Domain: machupicchutourscusco
 */
 
 /*
@@ -18,11 +18,11 @@ Text Domain: toursnew
 
 	/* COLORES */
 
-	--colorPrimario: ;
+	/*--colorPrimario: ;
 	--colorSecundario: ;
 	--colorTerciario: ;
 	--negro: #000;
-	--blanco:  #fff;
+	--blanco:  #fff;*/
 
 	/* FUENTES */ 
 	--fuentePrincipal: "Montserrat", Arial, sans-serif;
@@ -58,14 +58,102 @@ ul{
 	margin: 0;
 	padding-left: 0;
 }
+img{
+	max-width: 100%;
+	height: auto;
+}
 /* 
 	UTILITARIOS
 */
 .boton{
 
 }
+.centrado{
+
+}
+
+/* 
+	MENÚ NAVEGACIÓN
+*/
+.content-nav-principal{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 8rem;
+	padding: 0 1rem;
+}
+
+.content-nav-principal .nav-page ul{
+	display: flex;
+}
+.content-nav-principal .nav-page ul li{
+	margin-right: 2rem;
+}
+.content-nav-principal .nav-page ul li:last-child{
+	margin-right: 0;
+}
+.nav-principal{
+	display: none;
+}
+.nav-principal ul li a{
+	display: block;
+	font-family: var(--fuentePrincipal);
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 1.45rem;
+}
+.bar-menu{
+	display: block;
+}
+@media only screen and (min-width: 960px){
+	.nav-principal{
+		display: block;
+	}
+	.bar-menu{
+		display: none;
+	}
+}
+	
+.nav-social{
+	display: none;
+}
+.nav-social ul li span{
+	display: none;
+}
+.nav-social ul li a:after{	
+	font-family: "Font Awesome 5 Brands";
+	display: block;
+	font-size: 2rem;
+}
+.nav-social ul li a[href*="www.facebook.com"]:after{
+	content: '\f39e';
+}
+.nav-social ul li a[href*="www.twitter.com"]:after{
+	content: '\f099';
+}
+.nav-social ul li a[href*="www.instagram.com"]:after{
+	content: '\f16d';
+}
+.nav-social ul li a[href*="www.youtube.com"]:after{
+	content: '\f167';
+}
+.nav-social ul li a[href*="www.pinterest.com"]:after{
+	content: '\f231';
+}
+.nav-social ul li a[href*="www.tiktok.com"]:after{
+	content: '\e07b';
+}
+@media only screen and (min-width: 960px){
+	.nav-social{
+		display: block;
+	}	
+}
 
 
 /* 
-	CABECERA
+	CONTENIDO PRINCIPAL
 */
+
+.contenido-principal{
+	display: grid;
+}
