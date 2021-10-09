@@ -149,11 +149,25 @@ img{
 	}	
 }
 
-
 /* 
 	CONTENIDO PRINCIPAL
 */
-
 .contenido-principal{
-	display: grid;
+
 }
+
+.contenido-principal .escritorio{
+	display: none;
+}
+.contenido-principal .movil{
+	display: block;
+}
+@media only screen and (min-width: 1024px){
+	.contenido-principal .escritorio{
+		display: grid;
+	}	
+	.contenido-principal .movil{
+		display: none;
+	}
+}
+
