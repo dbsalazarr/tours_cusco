@@ -7,6 +7,7 @@
 </head>
 <body>
 	<!-- MENÚ DE NAVEGACIÓN -->
+	<div class="contenedor">
 	<div class="content-nav-principal">
 		<div class="logo">
 			<?php 
@@ -41,7 +42,6 @@
 				'link_before' => '<span class="sr-text">',
 				'link_after' => '</span>'
 			);
-
 			wp_nav_menu($menu_social);
 		?>
 	</div>

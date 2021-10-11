@@ -20,9 +20,9 @@ Text Domain: machupicchutourscusco
 
 	/*--colorPrimario: ;
 	--colorSecundario: ;
-	--colorTerciario: ;
+	--colorTerciario: ;*/
 	--negro: #000;
-	--blanco:  #fff;*/
+	--blanco:  #fff;
 
 	/* FUENTES */ 
 	--fuentePrincipal: "Montserrat", Arial, sans-serif;
@@ -60,16 +60,45 @@ ul{
 }
 img{
 	max-width: 100%;
+	width: 100%;
 	height: auto;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: var(--fuentePrincipal);
+	margin: 2rem 0;
+}
+h1{ font-size: 4.1rem; }
+h2{ font-size: 3.6rem; }
+h3{ font-size: 3.2rem; }
+h4{ font-size: 2.8rem; }
+h5{ font-size: 2.5rem; }
+h6{ font-size: 2.2rem; }
+p{ font-size: 1.7rem; }
+.contenedor{
+	max-width: 192rem;
+	width: 100%;
+	margin: 0 auto;
 }
 /* 
 	UTILITARIOS
 */
 .boton{
-
+	display: inline-block;
+	padding: 1.6rem 0;
+	max-width: 16rem;
+	width: 80%;
+	border: 1px solid #000;
+	border-radius: 3rem;
+	text-align: center;
 }
-.centrado{
-
+.boton.primario{
+	background: var(--colorPrimario);
+}
+.boton.secundario{
+	background: var(--colorSecundario);
+}
+.text-center{
+	text-align: center;
 }
 
 /* 
@@ -105,7 +134,7 @@ img{
 .bar-menu{
 	display: block;
 }
-@media only screen and (min-width: 960px){
+@media only screen and (min-width: 1024px){
 	.nav-principal{
 		display: block;
 	}
@@ -143,7 +172,7 @@ img{
 .nav-social ul li a[href*="www.tiktok.com"]:after{
 	content: '\e07b';
 }
-@media only screen and (min-width: 960px){
+@media only screen and (min-width: 1024px){
 	.nav-social{
 		display: block;
 	}	
@@ -152,22 +181,87 @@ img{
 /* 
 	CONTENIDO PRINCIPAL
 */
-.contenido-principal{
-
+.contenido-principal img{
+	height: 100%;
 }
-
 .contenido-principal .escritorio{
 	display: none;
 }
 .contenido-principal .movil{
 	display: block;
+	height: 100%;
+}
+.bx-wrapper{
+	border: none;
+}
+.contenido-principal article.main{
+	position: relative;
+}
+.contenido-principal .detalles{
+	position: absolute;
+	left: 2rem;
+	bottom: 2rem;
+	width: 80%;
+	padding: 2rem;
+	color: var(--blanco);
+}
+.contenido-principal .detalles h4 a{
+	color: var(--blanco);
 }
 @media only screen and (min-width: 1024px){
 	.contenido-principal .escritorio{
 		display: grid;
-	}	
+		grid-template-columns: 23.1% 26.20% 25.35% 25.35%;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+		"largue square-one rectangle-one rectangle-one"
+		"largue rectangle-two rectangle-two square-two";
+	}
+	.escritorio .portada-1{
+		grid-area: largue;
+	}
+	.escritorio .portada-2{		
+		grid-area: square-one;
+	}
+	.escritorio .portada-3{
+		grid-area: rectangle-one;
+	}
+	.escritorio .portada-4{
+		grid-area: rectangle-two;
+	}
+	.escritorio .portada-5{
+		grid-area: square-two;
+	}
 	.contenido-principal .movil{
 		display: none;
 	}
 }
+/*
+	ESTILOS PARA LOS TOURS
+*/
+.tours{
+}
+.tours .list-tour{
+	position: relative;
+	margin-bottom: 2rem;
+}
+.tours .list-tour .descripcion-tour{
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;
+}
+.tours .list-tour .descripcion-tour{
+}
 
+.tours .list-tour .descripcion-tour img{
+	border-radius: 2rem;
+}
+.tours .list-tour .descripcion-tour h4{
+	font-size: 2rem;
+	margin: 1rem 0;
+}
+@media only screen and (min-width: 480px){
+	.tours{
+		display: flex;
+	}
+}

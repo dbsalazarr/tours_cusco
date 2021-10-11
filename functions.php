@@ -28,26 +28,31 @@
 
 		// Registrando los estilos CSS
 		wp_register_style("normalize", get_template_directory_uri().'/css/normalize.css', array(), '8.0.13');
-		wp_register_style("style", get_stylesheet_uri(), array('normalize'), '1.0', 'all');
-		wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Montserrat:wght@300;400;700&display=swap', array('normalize', 'style'), '1.0');
-		wp_register_style("bxslider", 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css', array(), '4.2.12');
+		wp_register_style("style", get_stylesheet_uri(), array('normalize', 'bxslidercss'), '1.0', 'all');
+		wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Montserrat:wght@300;400;700&display=swap', array(), '1.0');
+		wp_register_style("bxslidercss", 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css', array(), '4.2.12');
 
 		wp_enqueue_style("normalize");
 		wp_enqueue_style("google-fonts");
-		wp_enqueue_style("bxslider");
 		wp_enqueue_style("style");
 		
 
 		// Registrando los archivos JS
 
 		wp_register_script("mycodejs", get_template_directory_uri().'/js/mycode.js', array(), '1.0', true);
-		wp_register_script("bxslider", 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js', array('jquery', 'mycodejs'), '4.2.12', true);
+		wp_register_script("bxsliderjs", 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js', array('jquery', 'mycodejs'), '4.2.12', true);
 		wp_register_script('fontawesome', 'https://kit.fontawesome.com/69b5ee1732.js', array(), 'last-version', true);
 		
 		wp_enqueue_script("jquery");
-		wp_enqueue_script("bxslider");
+		
 		wp_enqueue_script('mycodejs');
 		wp_enqueue_script('fontawesome');
+
+		// Condicionando el agrego de la libreria para el slider de la web en modo movil
+		if( is_page('inicio')){
+			wp_enqueue_style("bxslidercss");
+			wp_enqueue_script("bxsliderjs");
+		}
 
 		
 	}
