@@ -28,9 +28,9 @@
 			wp_nav_menu($menu_principal);
 		?>
 
-
 		<div class="bar-menu">
 			<i style="font-size:2rem" class="fas fa-bars"></i>
+			Ménu
 		</div>
 		<!-- Definiendo el menú de navegación social -->
 		<?php 

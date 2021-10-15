@@ -9,8 +9,8 @@
 
 		// Agregando detalles para un logo personalizado
 		$imagen = array(
-			'height' => 36,
-			'width' =>  119
+			'height' => 80,
+			'width' =>  150
 		);
 		add_theme_support('custom-logo', $imagen);
 
@@ -19,6 +19,7 @@
 		add_image_size('largue', 410, 850, true);
 		add_image_size('square', 482, 415, true);
 		add_image_size('rectangle', 933, 415, true);
+		add_image_size('blog', 490, 325, true);
 
 	}
 	add_action("after_setup_theme", "tours_cusco_setup");
@@ -69,6 +70,24 @@
 	}
 	add_action("init", "tours_cusco_menus");
 
+	// AGREGANDO LOS WIDGETS AL TEMA
+
+	function tours_cusco_widgets(){
+		register_sidebar(array(
+			'name' => 'Footer',
+			'id' => 'footer_widget',
+			'before_widget' => '<div class="footer-widget">',
+			'after_widget' => '</div>'
+		));
+		register_sidebar(array(
+			'name' => 'Galeria',
+			'id' => 'galeria',
+			'before_widget' => '<div class="galeria">',
+			'after_widget' => '</div>'
+		));
+	}
+	add_action('widgets_init', 'tours_cusco_widgets');
+
 
 	// Creando los CTP Custom Post Types
 
@@ -113,4 +132,96 @@
 	}
 	add_action('init','tours_cusco_recorridos');
 
+
+	function tours_cusco_testimonios(){
+		$labels = array(
+			'name' => _x('Testimonios','machupicchutourscusco'),
+			'singular_name' => _x('Testimonios','post type singular name','testimonios'),
+			'menu_name' => _x('Testimonios','admin menu','machupicchutourscusco'),
+			'name_admin_bar' => _x('Testimonios','add new on admin bar','machupicchutourscusco'),
+			'add_new' => _x('Add New Testimonio','book','machupicchutourscusco'),
+			'add_new_item' => _x('Add New Testimonios','machupicchutourscusco'),
+			'new_item' => _x('New Testimonios','machupicchutourscusco'),
+			'edit_item' => _x('Edit Testimonio','machupicchutourscusco'),
+			'view_item' => _x('View Testimonios','machupicchutourscusco'),
+			'all_items' => _x('All Testimonios','machupicchutourscusco'),
+			'search_items' => _x('Search Testimonios','machupicchutourscusco'),
+			'parent_item_colon' => _x('Parent Testimonios','machupicchutourscusco'),
+			'not_found' => _x('No Testimonios Found','machupicchutourscusco'),
+			'not_found_in_trash' => _x('No Testimonios found in Trash','machupicchutourscusco')
+		);
+
+		$args = array(
+			'labels' => $labels,
+			'description' => __('Descripcion','machupicchutourscusco'),
+			'public' => true,
+			'publicity_queryable' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'query_var' => true,
+			'rewrite' => array('slug','testimonios'),
+			'capability_type' => 'post',
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_position' => 7,
+			'supports' => array('title','editor','thumbnail'),
+			'show_in_rest' => true, // Habilitar Gutenberg
+			'taxonomies' => array('category'),
+			'menu_icon' => 'dashicons-testimonial'
+		);
+
+		register_post_type('testimonios', $args);
+	}
+	add_action('init','tours_cusco_testimonios');
+
+	function tours_cusco_blog(){
+		$labels = array(
+			'name' => _x('Blog','machupicchutourscusco'),
+			'singular_name' => _x('Blog','post type singular name','machupicchutourscusco'),
+			'menu_name' => _x('Blog','admin menu','machupicchutourscusco'),
+			'name_admin_bar' => _x('Blog','add new on admin bar','machupicchutourscusco'),
+			'add_new' => _x('Add New Article','book','machupicchutourscusco'),
+			'add_new_item' => _x('Add New Article','machupicchutourscusco'),
+			'new_item' => _x('New Article','machupicchutourscusco'),
+			'edit_item' => _x('Edit Article','machupicchutourscusco'),
+			'view_item' => _x('View Article','machupicchutourscusco'),
+			'all_items' => _x('All Articles','machupicchutourscusco'),
+			'search_items' => _x('Search Articles','machupicchutourscusco'),
+			'parent_item_colon' => _x('Parent Articles','machupicchutourscusco'),
+			'not_found' => _x('No Article Found','machupicchutourscusco'),
+			'not_found_in_trash' => _x('No Articles found in Trash','machupicchutourscusco')
+		);
+
+		$args = array(
+			'labels' => $labels,
+			'description' => __('Descripcion','machupicchutourscusco'),
+			'public' => true,
+			'publicity_queryable' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'query_var' => true,
+			'rewrite' => array('slug','blog'),
+			'capability_type' => 'post',
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_position' => 8,
+			'supports' => array('title','editor','thumbnail'),
+			'show_in_rest' => true, // Activa el nuevo editor de Bloques Gutenberg
+			'taxonomies' => array('category'),
+			'menu_icon' => 'dashicons-feedback'
+		);
+
+		register_post_type('blog', $args);
+	}
+	add_action('init','tours_cusco_blog');
+
+
+	function delete_custom_post_types(){
+		unregister_post_type('historia');
+	}
+	add_action('init', 'delete_custom_post_types');
+	
+
 ?>
+
+

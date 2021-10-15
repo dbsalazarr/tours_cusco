@@ -14,4 +14,12 @@ $(document).ready(function(){
       	auto: true,
       	pause: 5000
       });
+
+	  $('.content-testimonios').bxSlider({
+		  mode: 'horizontal',
+		  speed: 1000,
+		  controls: false,
+		  auto: true,
+		  pause: 5000
+	  });
 });

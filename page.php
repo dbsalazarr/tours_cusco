@@ -1,3 +1,6 @@
 <?php get_header(); ?>
-<h3>page.php</h3>
+
+<h4>page.php</h4>
+<?php the_content(); ?>
+
 <?php get_footer(); ?>
