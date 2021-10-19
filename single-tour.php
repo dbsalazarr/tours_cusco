@@ -47,11 +47,11 @@
 							</p>
 						</li>
 					</ul>
-					<a href="#" class="boton primario texto-negro"><i class="fab fa-whatsapp"></i> Contáctanos </a>
+					<a href="#" class="boton primario texto-blanco"><i class="fab fa-whatsapp"></i> Contáctanos </a>
 				</div>
 
 			</header>
-			<div class="contenido-tour extenso">
+			<div class="contenido contenido-tour extenso">
 				<?php the_content(); ?>
 			</div>
 			<footer>

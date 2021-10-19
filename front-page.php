@@ -20,7 +20,7 @@
 				<article class="<?php echo 'main portada-'.$i ?>">
 					<div class="detalles">
 						<h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a></h4>
-						<p><?php echo "Desde S/. ". get_field('precio') ?></p>
+						<p><?php echo "Desde $ ". get_field('precio') ?></p>
 						<a href="<?php the_permalink(); ?>" class="boton primario texto-blanco"> Explorar Más</a>
 					</div>
 					<?php 
@@ -48,6 +48,7 @@
 				<?php $i++; ?>
 			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
+		<!-- Vista movil de la cabecera del sitio  -->
 		<div class="movil">
 			<div class="slider-main">
 				<?php while( $portada->have_posts() ) : $portada->the_post(); ?>
@@ -61,190 +62,36 @@
 					</article>
 				<?php endwhile; wp_reset_postdata(); ?>
 			</div>
-		</div>
+		</div> <!-- FIn del maquetado movil de la cabecera del sitio -->
 	</main> <!-- Fin del contenido principal -->
 	<!-- Buscador -->
 	<!-- Fin del buscador de la web -->
 
+	<?php get_template_part('templates/list', 'tours'); ?>
 
+	<!-- Hero -->
+	<?php 
+		$imagenId = get_field('hero_inicio');
+		/*
+			Primer parametro, id de la imagen
+			Segunda parametro, tamañao de la imagen, según lo predeterminado en wordpress o los definidos por el programador
+		*/
+		$imagenURL = wp_get_attachment_image_src($imagenId, 'full')[0];
+	?>
 
-	<!-- Lista de tours de 1 a 30 días -->
-	<section class="tours">
-		<h2 class="titulo-seccion text-center">
-			Tours de 1 a 30 días en todo Perú
-		</h2>
-	
-		<?php
-			$args = array(
-				'post_type' => 'tour',
-				'posts_per_page' => -1,
-				'category_name' => 'tour 1 a 30 dias',
-				'order' => 'ASC'
-			);
-
-			$tours = new WP_Query($args);
-		?>
-		<div class="content-tours">
-			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
-					<div class="image-tour">
-						<?php the_post_thumbnail(); ?>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
-					</div>
-					<div class="descripcion-tour">
-						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
-
-						<hr>
-						<a href="<?php the_permalink(); ?>" class="boton principal ver-tour"> Ver Tour </a>
-					</div>
-				</article>
-			<?php endwhile; wp_reset_postdata();?>
-		</div>
-
-	</section>
-
-	<!-- Fin de la lista de 1 a 30 días -->
-
-	<!-- Lista de tours de diferentes destinos del Perú -->
-	<section class="tours">
-		<h2 class="titulo-seccion text-center">
-			Tours en diferentes destinos del Perú
-		</h2>
-		<?php
-			$args = array(
-				'post_type' => 'tour',
-				'posts_per_page' => -1,
-				'category_name' => 'destinos peru',
-				'order' => 'ASC'
-			);
-
-			$tours = new WP_Query($args);
-		?>
-		<div class="content-tours">
-			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
-					<div class="image-tour">
-						<?php the_post_thumbnail(); ?>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
-					</div>
-					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
-
-						<hr>
-						<a href="<?php the_permalink(); ?>" class="boton principal ver-tour"> Ver Tour </a>
-					</div>
-				</article>
-			<?php endwhile; wp_reset_postdata();?>
+	<section class="hero">
+		<img src="<?php echo $imagenURL?>" alt="Machu Picchu todo poderoso">
+		<div class="contenido-hero text-center">
+			<h3 class=""> <?php the_field('titulo_hero'); ?> </h3>
+			<p> <?php the_field('contenido_hero'); ?></p>
+			<a href="#" class="boton secundario texto-blanco">Conoce más</a>
 		</div>
 	</section>
-	<!-- Fin lista de tours de los diferentes destinos del Perú -->
+	<!-- Fin Hero -->
 
-	<!--  Tours Clasicos en Cusco-->
-	<section class="tours">
-		<h2 class="titulo-seccion text-center">
-			Tours Clásicos en Cusco
-		</h2>
-		<?php
-			$args = array(
-				'post_type' => 'tour',
-				'posts_per_page' => -1,
-				'category_name' => 'clasicos cusco',
-				'order' => 'ASC'
-			);
-
-			$tours = new WP_Query($args);
-		?>
-		<div class="content-tours">
-			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
-					<div class="image-tour">
-						<?php the_post_thumbnail(); ?>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
-					</div>
-					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
-
-						<hr>
-						<a href="<?php the_permalink(); ?>" class="boton principal ver-tour"> Ver Tour </a>
-					</div>
-				</article>
-			<?php endwhile; wp_reset_postdata();?>
-		</div>
-	</section>
-	<!-- Fin destinos clasicos en Cusco -->
-
-	<!-- Camino Inca - Trekking a Machu Picchu -->
-	<section class="tours">
-		<h2 class="titulo-seccion text-center">
-			Camino Inca - Trekking a Machu Picchu
-		</h2>
-		<?php
-			$args = array(
-				'post_type' => 'tour',
-				'posts_per_page' => -1,
-				'category_name' => 'camino inca',
-				'order' => 'ASC'
-			);
-
-			$tours = new WP_Query($args);
-		?>
-		<div class="content-tours">
-			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
-					<div class="image-tour">
-						<?php the_post_thumbnail(); ?>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
-					</div>
-					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
-
-						<hr>
-						<a href="<?php the_permalink(); ?>" class="boton principal ver-tour"> Ver Tour </a>
-					</div>
-				</article>
-			<?php endwhile; wp_reset_postdata();?>
-		</div>
-	</section>
-	<!-- Fin Camino Inca - Trekking a Machu Picchu-->
-
-	<!-- Tours de Aventura en Cusco y Alrededores -->
-	<section class="tours">
-		<h2 class="titulo-seccion text-center">
-			Tours de Aventura en Cusco y Alrededores
-		</h2>
-		<?php
-			$args = array(
-				'post_type' => 'tour',
-				'posts_per_page' => -1,
-				'category_name' => 'aventura en cusco',
-				'order' => 'ASC'
-			);
-
-			$tours = new WP_Query($args);
-		?>
-		<div class="content-tours">
-			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
-					<div class="image-tour">
-						<?php the_post_thumbnail(); ?>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
-					</div>
-					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
-
-						<hr>
-						<a href="<?php the_permalink(); ?>" class="boton principal ver-tour"> Ver Tour </a>
-					</div>
-				</article>
-			<?php endwhile; wp_reset_postdata();?>
-		</div>
-	</section>
-	<!-- Fin Tours de Aventura en Cusco y Alrededores -->
+	<!-- Galeria -->
+			
+	<!-- Fin Galeria -->
 
 	<!-- Testimonios -->
 	<section class="testimonios">
@@ -271,40 +118,16 @@
 		<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 	</section> <!-- Fin Testimonios -->
-	
-	<!-- Galeria -->
-			
-	<!-- Fin Galeria -->
-
-	<!-- Hero -->
-	<?php 
-		$imagenId = get_field('hero_inicio');
-		/*
-			Primer parametro, id de la imagen
-			Segunda parametro, tamañao de la imagen, según lo predeterminado en wordpress o los definidos por el programador
-		*/
-		$imagenURL = wp_get_attachment_image_src($imagenId, 'full')[0];
-	?>
-
-	<section class="hero">
-		<img src="<?php echo $imagenURL?>" alt="Machu Picchu todo poderoso">
-		<div class="contenido-hero text-center">
-			<h3 class=""> <?php the_field('titulo_hero'); ?> </h3>
-			<p> <?php the_field('contenido_hero'); ?></p>
-		</div>
-	</section>
-	<!-- Fin Hero -->
 
 
 	<!-- BLog -->
-
-	<section class="blog">
+	<section class="blog-front">
 		<h2 class="titulo-seccion text-center">
 			Experiencias
 		</h2>
 		<?php 
 		 	$args = array(
-		 		'post_type' => 'blog',
+		 		'post_type' => 'historia',
 		 		'post_per_page' => 3
 		 	);
 
@@ -317,12 +140,12 @@
 					<a href="<?php the_permalink(); ?>"> <?php the_post_thumbnail('blog'); ?> </a>
 					<p class="resumen-blog"> <?php the_excerpt(); ?> </p>
 					<hr>
-					<a href="<?php the_permalink(); ?>" class="leer-mas-blog" target="_blank"> Leer más </a>
+					<a href="<?php the_permalink(); ?>" class="leer-mas-blog" target="_blank"> Leer más <i class="fas fa-angle-double-right"></i></a>
 				</article>
 			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 	</section>
-
+	
 	<!-- Fin Blog -->
 
 	<!-- Destinos más emblematicos del Perú -->

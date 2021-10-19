@@ -9,11 +9,29 @@
 					dynamic_sidebar('footer_widget');
 				}
 			?>
+			<div class="footer-widget">
+				<h4>Tours Destacados</h4>
+				<?php 
+					$args = array(
+						'post_type' => 'tour',
+						'post_per_page' => 5,
+						'category_name' => 'mas populares',
+						'orderny' => 'rand'
+					);
+					$destacados = new WP_Query($args);
+				?>
+				<ul>
+					<?php while($destacados->have_posts()) : $destacados->the_post(); ?>
+						<li><a href="<?php the_permalink(); ?>">  <?php the_title(); ?> </a> </li>
+					<?php endwhile; wp_reset_postdata(); ?>
+				</ul>	
+			</div>
 
 			<?php wp_footer(); ?>
 		</div>
 	</footer>
-	<p class="text-center" style="font-family: var(--fuenteSecundaria);">Copyright &copy Todos los derechos reservados to Bremdows</p>
+	<p class="text-center" style="font-family: var(--fuenteSecundaria);">Copyright &copy Todos los derechos reservados to Machupicchu Tours Cusco</p>
+	<p class="text-center" style="font-family: var(--fuenteSecundaria); font-size: 1.4rem; margin:0;">Code by bremdows</p>
 	<!-- Fin Footer -->
 	</div>
 </body>

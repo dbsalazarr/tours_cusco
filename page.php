@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<h4>page.php</h4>
-<?php the_content(); ?>
+	<div style="margin-top: 10rem;"></div>
+	<section class="centrar-contenedor-60">
+		<h2 class="titulo-seccion text-center"> <?php the_title(); ?> </h2>
+		<?php the_content(); ?>
+	</section>
 
 <?php get_footer(); ?>

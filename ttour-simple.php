@@ -53,11 +53,11 @@
 							</p>
 						</li>
 					</ul>
-					<div class="boton primario texto-negro"><i class="fab fa-whatsapp"></i> Contactanos </div>
+					<div class="boton primario texto-blanco"><i class="fab fa-whatsapp"></i> Contactanos </div>
 				</div>
 
 			</header>
-			<div class="contenido-tour">
+			<div class="contenido contenido-tour">
 				<?php the_content(); ?>
 			</div>
 

@@ -73,18 +73,26 @@
 	// AGREGANDO LOS WIDGETS AL TEMA
 
 	function tours_cusco_widgets(){
+		
+		register_sidebar(array(
+			'name' => 'Sidebar',
+			'id' => 'sidebar_widget',
+			'before_widget' => '<div class="sidebar-widget">',
+			'after_widget' => '</div>'
+		));
+		register_sidebar(array(
+			'name' => 'Galeria',
+			'id' => 'galeria',
+			'before_widget' => '<div class="galeria-widget">',
+			'after_widget' => '</div>'
+		));		
 		register_sidebar(array(
 			'name' => 'Footer',
 			'id' => 'footer_widget',
 			'before_widget' => '<div class="footer-widget">',
 			'after_widget' => '</div>'
 		));
-		register_sidebar(array(
-			'name' => 'Galeria',
-			'id' => 'galeria',
-			'before_widget' => '<div class="galeria">',
-			'after_widget' => '</div>'
-		));
+
 	}
 	add_action('widgets_init', 'tours_cusco_widgets');
 
@@ -138,7 +146,7 @@
 			'name' => _x('Testimonios','machupicchutourscusco'),
 			'singular_name' => _x('Testimonios','post type singular name','testimonios'),
 			'menu_name' => _x('Testimonios','admin menu','machupicchutourscusco'),
-			'name_admin_bar' => _x('Testimonios','add new on admin bar','machupicchutourscusco'),
+			'name_admin_bar' => _x('Testimonio','add new on admin bar','machupicchutourscusco'),
 			'add_new' => _x('Add New Testimonio','book','machupicchutourscusco'),
 			'add_new_item' => _x('Add New Testimonios','machupicchutourscusco'),
 			'new_item' => _x('New Testimonios','machupicchutourscusco'),
@@ -174,22 +182,22 @@
 	}
 	add_action('init','tours_cusco_testimonios');
 
-	function tours_cusco_blog(){
+	function tours_cusco_historias(){
 		$labels = array(
-			'name' => _x('Blog','machupicchutourscusco'),
-			'singular_name' => _x('Blog','post type singular name','machupicchutourscusco'),
-			'menu_name' => _x('Blog','admin menu','machupicchutourscusco'),
-			'name_admin_bar' => _x('Blog','add new on admin bar','machupicchutourscusco'),
-			'add_new' => _x('Add New Article','book','machupicchutourscusco'),
-			'add_new_item' => _x('Add New Article','machupicchutourscusco'),
-			'new_item' => _x('New Article','machupicchutourscusco'),
-			'edit_item' => _x('Edit Article','machupicchutourscusco'),
-			'view_item' => _x('View Article','machupicchutourscusco'),
-			'all_items' => _x('All Articles','machupicchutourscusco'),
-			'search_items' => _x('Search Articles','machupicchutourscusco'),
-			'parent_item_colon' => _x('Parent Articles','machupicchutourscusco'),
-			'not_found' => _x('No Article Found','machupicchutourscusco'),
-			'not_found_in_trash' => _x('No Articles found in Trash','machupicchutourscusco')
+			'name' => _x('Historia','machupicchutourscusco'),
+			'singular_name' => _x('Historia','post type singular name','machupicchutourscusco'),
+			'menu_name' => _x('Historias','admin menu','machupicchutourscusco'),
+			'name_admin_bar' => _x('Historia','add new on admin bar','machupicchutourscusco'),
+			'add_new' => _x('Agregar Nueva Historia','book','machupicchutourscusco'),
+			'add_new_item' => _x('Agregar Nueva Historia','machupicchutourscusco'),
+			'new_item' => _x('Nueva Historia','machupicchutourscusco'),
+			'edit_item' => _x('Editar Historia','machupicchutourscusco'),
+			'view_item' => _x('Ver Historia','machupicchutourscusco'),
+			'all_items' => _x('Todas las Historias','machupicchutourscusco'),
+			'search_items' => _x('Buscar Historias','machupicchutourscusco'),
+			'parent_item_colon' => _x('Historias padres','machupicchutourscusco'),
+			'not_found' => _x('Historia no encontrada','machupicchutourscusco'),
+			'not_found_in_trash' => _x('Historias no encontradas en la papelera','machupicchutourscusco')
 		);
 
 		$args = array(
@@ -200,7 +208,7 @@
 			'show_ui' => true,
 			'show_in_menu' => true,
 			'query_var' => true,
-			'rewrite' => array('slug','blog'),
+			'rewrite' => array('slug','historia'),
 			'capability_type' => 'post',
 			'has_archive' => true,
 			'hierarchical' => false,
@@ -211,17 +219,15 @@
 			'menu_icon' => 'dashicons-feedback'
 		);
 
-		register_post_type('blog', $args);
+		register_post_type('historia', $args);
 	}
-	add_action('init','tours_cusco_blog');
+	add_action('init','tours_cusco_historias');
 
 
 	function delete_custom_post_types(){
-		unregister_post_type('historia');
+		unregister_post_type('blog');
 	}
 	add_action('init', 'delete_custom_post_types');
 	
 
 ?>
-
-

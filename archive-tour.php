@@ -1,1 +1,6 @@
-<h4>Tours a Machupicchu</h4>
+
+<?php get_header(); ?>
+
+	<?php get_template_part('templates/list', 'tours'); ?>
+
+<?php get_footer(); ?>
