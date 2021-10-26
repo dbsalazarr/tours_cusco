@@ -30,11 +30,14 @@
 		// Registrando los estilos CSS
 		wp_register_style("normalize", get_template_directory_uri().'/css/normalize.css', array(), '8.0.13');
 		wp_register_style("style", get_stylesheet_uri(), array('normalize', 'bxslidercss'), '1.0', 'all');
-		wp_register_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Jost:wght@400;700&family=Montserrat:wght@300;400;700&display=swap', array(), '1.0');
+		wp_register_style('fontMontserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap', array(), '1.0');
+		wp_register_style("fontJost", 'https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap', array(), '1.0');
 		wp_register_style("bxslidercss", 'https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css', array(), '4.2.12');
+		
 
 		wp_enqueue_style("normalize");
-		wp_enqueue_style("google-fonts");
+		wp_enqueue_style("fontMontserrat");
+		wp_enqueue_style("fontJost");
 		wp_enqueue_style("style");
 		
 

@@ -22,7 +22,7 @@
 				?>
 				<ul>
 					<?php while($destacados->have_posts()) : $destacados->the_post(); ?>
-						<li><a href="<?php the_permalink(); ?>">  <?php the_title(); ?> </a> </li>
+						<li><i class="fas fa-map-marker-alt"></i> <a href="<?php the_permalink(); ?>">  <?php the_title(); ?> </a> </li>
 					<?php endwhile; wp_reset_postdata(); ?>
 				</ul>	
 			</div>

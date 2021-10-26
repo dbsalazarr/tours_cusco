@@ -5,11 +5,10 @@
 */
 ?>
 <?php get_header(); ?>
-	<article class="centrar-contenedor-60">
+	<article class="centrar-contenedor-60" style="margin-top: 10rem;">
 		<?php while(have_posts()) : the_post(); ?>
 
-			<h2><?php the_title(); ?></h2>
-
+			<h2 class="text-center"><?php the_title(); ?></h2>
 			<header class="cabecera-tour">
 				<div class="imagen-tour">
 					<?php the_post_thumbnail('square'); ?>
@@ -19,18 +18,8 @@
 					<h3>Detalles del Tour</h3>
 					<ul>
 						<li>
-							<p><i class="far fa-calendar-check"></i></p>
-							<h5>Duración</h5>
-							<p> <?php the_field('duracion_tour') ?> </p>
-						</li>
-						<li>
-							<p><i class="fas fa-dollar-sign"></i></p>
-							<h5>Desde</h5>
-							<p> <?php echo "$ ". get_field('precio') ?> </p>
-						</li>
-						<li>
-							<p><i class="fas fa-shoe-prints"></i></p>
-							<h5>Lugar/es a visitar</h5>
+							<p><i class="fas fa-shoe-prints"></i> <span>Lugar/es a visitar</span></p>
+							
 							<p>
 								<?php
 									$lugaresCusco = get_field('lugares_cusco');
@@ -48,12 +37,23 @@
 											$lugares .= $lugar. ", ";
 										endforeach;
 										echo $lugares;
-									}	
+									}
 								?>
+						</li>
+						<li>
+							<p><i class="far fa-calendar-check"></i> <span>Duración</span></p>
+							<p> 
+								<?php the_field('duracion_tour') ?> </p>
+							</p>
+						</li>
+						<li>
+							<p><i class="fas fa-dollar-sign"></i> <span>Desde</span></p>
+							<p>
+								<?php echo "$ ". get_field('precio') ?>
 							</p>
 						</li>
 					</ul>
-					<div class="boton primario texto-blanco"><i class="fab fa-whatsapp"></i> Contactanos </div>
+					<a href="https://web.whatsapp.com/send?phone=51974678364&text=Hola, estoy interesad@ en el tour <?php the_title(); ?>" target="_blank" class="boton primario texto-blanco"><i class="fab fa-whatsapp"></i> Contáctanos </a>
 				</div>
 
 			</header>

@@ -17,7 +17,7 @@
 			<?php  while( $portada->have_posts() ) : $portada->the_post(); ?>
 
 				<?php $sizeImage = ""; ?>
-				<article class="<?php echo 'main portada-'.$i ?>">
+				<article class="<?php echo 'main imagen-contenedor portada-'.$i ?>">
 					<div class="detalles">
 						<h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a></h4>
 						<p><?php echo "Desde $ ". get_field('precio') ?></p>

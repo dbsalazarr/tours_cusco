@@ -26,12 +26,17 @@ Text Domain: machupicchutourscusco
 	--grisClaro: #e6e6e6;
 	--grisTenue: #f7f7f7;
 	--grisOscuro: #333333;
+	--colorTabla: rgba(134, 240, 189, .4);
+	
+	
 
 	/* FUENTES */ 
 	--fuentePrincipal: 'Montserrat', Arial, sans-serif;
 	--fuenteSecundaria: 'Jost', Arial, sans-serif;
 }
-
+/*
+	ESTILOS GENERALES
+*/
 *{
 	padding: 0;
 	margin: 0;
@@ -48,17 +53,14 @@ html{
 body{
 	font:  normal normal 16px "Montserrat", Arial, Helvetica, Sans-serif;
 }
-/*
-	ESTILOS GENERALES
-*/
-a{
-	text-decoration: none;
-	color: var(--negro);
-}
 ul{
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+}
+a{
+	text-decoration: none;
+	color: var(--negro);
 }
 img{
 	max-width: 100%;
@@ -87,7 +89,6 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 .centrar-contenedor{
 	max-width: 80%;
 	margin: 8rem auto 0;
-
 }
 .centrar-contenedor-90{
 	max-width: 90%;
@@ -127,6 +128,15 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 }
 .titulo-seccion{
 	margin-bottom: 3.5rem;
+}
+.imagen-contenedor{
+	overflow: hidden;
+}
+.imagen-contenedor img{
+	transition: transform .5s ease-in-out;
+}
+.imagen-contenedor:hover img{
+	transform: scale(1.1);
 }
 /* 
 	MENÚ NAVEGACIÓN
@@ -263,6 +273,7 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	width: 80%;
 	padding: 2rem;
 	color: var(--blanco);
+	z-index: 999;
 }
 .contenido-principal .detalles h4 a{
 	color: var(--blanco);
@@ -385,11 +396,12 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 .contenido-hero{
 	padding: 2rem;
 	background: var(--blanco);
+	border-radius: 2rem;
 }
 @media only screen and (min-width: 1400px){
 	.contenido-hero{
 		position: absolute;
-		width: 40rem;
+		width: 65rem;
 		height: 36rem;
 		right: 2rem;
 		top: 2rem;
@@ -411,8 +423,6 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	border:  0.5px solid var(--colorPrimario);
 	margin-bottom: 2rem;
 }
-.content-blog .blog-list .titulo-blog{
-}
 .content-blog .blog-list .leer-mas-blog{
 	font-family: var(--fuenteSecundaria);
 	text-transform: uppercase;
@@ -422,6 +432,7 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 }
 .content-blog .blog-list img{
 	box-shadow: 2px 5px 20px rgba(0, 0, 0, .3);
+	border-radius: 1rem;
 }
 @media only screen and (min-width: 768px){
 	.content-blog{
@@ -444,15 +455,6 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 		margin: auto;
 	}
 }
-
-/* 
-	CONTENIDO DEL BLOG
-*/
-.contenido-davis{
-
-}
-
-
 /* 
 	FOOTER
 */
@@ -466,7 +468,6 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	border-bottom: 1px solid var(--negro);
 	padding-bottom: 4rem;
 }
@@ -500,6 +501,14 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 /*
 	ESTILOS TOURS
 */
+.ruta-tour a{
+	margin-right: .5rem;
+	font-weight: 700;
+}
+.ruta-tour span i{
+	color: var(--colorSecundario);
+	margin-right: .5rem;
+}
 .cabecera-tour .resumen-tour{
 	background: #f9f9f9;
 	padding: 2rem;
@@ -515,18 +524,21 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	display: flex;
 	flex-wrap: wrap;
 }
+.cabecera-tour .resumen-tour ul li:nth-child(1){
+	flex: 1 0 100%;
+}
 .cabecera-tour .resumen-tour ul li{
 	margin-right: 2rem;
 }
 .cabecera-tour .resumen-tour ul li:last-child{
 	margin-right: 0;
-	flex: 0 0 40rem;
 }
 .cabecera-tour .resumen-tour ul li i{
 	color: var(--grisOscuro);
+	margin-right: .5rem;
 }
-.cabecera-tour .resumen-tour ul li h5{
-	font-size: 1.4rem;
+.cabecera-tour .resumen-tour ul li p span{
+	font-weight: 700;
 }
 @media only screen and (min-width: 768px){
 	.cabecera-tour{
@@ -564,6 +576,27 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
     background: #000;
     transform: translateX(-500%);
     border-radius: 2rem;
+}
+/*
+	PRECIOS TOURS
+*/
+.contenido-tour table{
+	width: 100%;
+	border-spacing: 0;
+	color: var(--grisOscuro);
+}
+.contenido-tour table + table{
+	margin-top: 2rem;
+}
+.contenido-tour table td,
+.contenido-tour table th{
+	padding: 1.5rem;
+}
+.contenido-tour thead tr:nth-child(odd){
+	background: var(--colorTabla);
+}
+.contenido-tour tbody tr:nth-child(even){
+	background: var(--colorTabla);
 }
 /* 
 	CONTACTO
@@ -614,8 +647,6 @@ textarea{
 }
 .contenido-historia .list-historia{
 	margin-bottom: 2rem;
-}
-.contenido-historia .list-historia .titulo-historia{
 }
 .contenido-historia .list-historia .leer-mas-historia{
 	color: var(--colorSecundario);

@@ -1,7 +1,7 @@
 <!-- Lista de tours de 1 a 30 días -->
 	<section class="tours">
 		<h2 class="titulo-seccion text-center">
-			Tours de 1 a 30 días en todo Perú
+			Tours de 1 a 25 días en todo Perú
 		</h2>
 	
 		<?php
@@ -16,9 +16,9 @@
 		?>
 		<div class="content-tours">
 			<?php  while($tours->have_posts()) : $tours->the_post(); ?>
-				<article class="tours-30 list-tour">
+				<article class="tours-30 list-tour imagen-contenedor">
 					<div class="image-tour">
-						<a href="<?php the_permalink(); ?> ">	<?php the_post_thumbnail(); ?> </a>
+						<a href="<?php the_permalink(); ?>">	<?php the_post_thumbnail(); ?> </a>
 						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
@@ -59,8 +59,8 @@
 						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
+						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
+						<p class="precio"><b>Desde: </b>  <span> <?php echo "$ ". get_field('precio');?> </span> </p>
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
@@ -91,8 +91,8 @@
 						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
+						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
+						<p class="precio"><b>Desde: </b>  <span> <?php echo "$ ". get_field('precio');?> </span> </p>
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
@@ -123,8 +123,8 @@
 						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<span class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></span>
+						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
+						<p class="precio"><b>Desde: </b>  <span> <?php echo "$ ". get_field('precio');?> </span> </p>
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
@@ -155,8 +155,8 @@
 						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
-						<h4 class="titulo"><?php the_title(); ?></h4>
-						<p class="precio"><b>Desde: </b><?php echo "$ ". get_field('precio');?></p>
+						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
+						<p class="precio"><b>Desde: </b>  <span> <?php echo "$ ". get_field('precio');?> </span> </p>
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
