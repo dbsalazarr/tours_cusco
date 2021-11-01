@@ -65,6 +65,7 @@
 		</div> <!-- FIn del maquetado movil de la cabecera del sitio -->
 	</main> <!-- Fin del contenido principal -->
 	<!-- Buscador -->
+	<?php get_search_form(); ?>
 	<!-- Fin del buscador de la web -->
 
 	<?php get_template_part('templates/list', 'tours'); ?>

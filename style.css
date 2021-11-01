@@ -31,8 +31,8 @@ Text Domain: machupicchutourscusco
 	
 
 	/* FUENTES */ 
-	--fuentePrincipal: 'Montserrat', Arial, sans-serif;
-	--fuenteSecundaria: 'Jost', Arial, sans-serif;
+	--fuentePrincipal: 'Montserrat', Arial, Helvetica, sans-serif;
+	--fuenteSecundaria: 'Jost', Arial, Helvetica, sans-serif;
 }
 /*
 	ESTILOS GENERALES
@@ -243,6 +243,37 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	}	
 }
 /* 
+	FORMULARIO BUSQUEDA
+*/
+.datos-busqueda span{
+	font-family: var(--fuenteSecundaria);
+	display: block;
+}
+.datos-busqueda input{
+	outline: none;
+	border: 1px solid var(--grisClaro);
+	border-radius: 2rem;
+	margin-top: 2rem;
+	width: 100%;
+}
+@media only screen and (min-width: 690px){
+	.datos-busqueda{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.datos-busqueda input{
+		width: auto;
+	}
+	.datos-busqueda input#dias{
+		width: 15rem;
+	}
+}
+.error{
+	border: 1px solid var(--colorSecundario) !important;
+}
+/* 
 	CONTENIDO PRINCIPAL
 */
 .contenido-principal{
@@ -324,7 +355,6 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	border-top-left-radius: 1.5rem;
 	border-top-right-radius: 1.5rem;
 }
-
 .tours .list-tour .image-tour .duracion{
 	position: absolute;
 	color: var(--blanco);
@@ -337,8 +367,7 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 }
 .tours .list-tour .descripcion-tour .titulo{
 	font-size: 2rem;
-	margin-left: 2rem;
-	margin-bottom: 3rem;
+	margin: 3rem 2rem;
 }
 .tours .list-tour .descripcion-tour .precio{
 	margin-bottom: 2rem;
@@ -370,6 +399,11 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	.content-tours{
 		grid-template-columns: repeat(5, 1fr);
 	}
+}
+.all-tours{
+	font-size: 3.6rem;
+	color: var(--colorSecundario);
+	text-decoration: underline;
 }
 /* 
 	TESTIMONIOS
@@ -501,6 +535,9 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 /*
 	ESTILOS TOURS
 */
+.contenido-tour{
+	margin-top: 2.5rem;
+}
 .ruta-tour a{
 	margin-right: .5rem;
 	font-weight: 700;
@@ -509,57 +546,51 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	color: var(--colorSecundario);
 	margin-right: .5rem;
 }
+.cabecera-tour .precio-desde{
+	background: var(--grisTenue);
+	border-radius: 2rem;
+	padding: 2rem 0;
+}
+.cabecera-tour .precio-desde h3{
+	margin: 0  0 2.5rem 0;
+}
 .cabecera-tour .resumen-tour{
-	background: #f9f9f9;
-	padding: 2rem;
-}
-.cabecera-tour .imagen-tour{
-	margin-bottom: 2rem;
-}
-.cabecera-tour .imagen-tour img,
-.cabecera-tour .resumen-tour{
-	border-radius: 1.5rem;
-}
-.cabecera-tour .resumen-tour ul{
 	display: flex;
-	flex-wrap: wrap;
-}
-.cabecera-tour .resumen-tour ul li:nth-child(1){
-	flex: 1 0 100%;
-}
-.cabecera-tour .resumen-tour ul li{
-	margin-right: 2rem;
-}
-.cabecera-tour .resumen-tour ul li:last-child{
-	margin-right: 0;
-}
-.cabecera-tour .resumen-tour ul li i{
-	color: var(--grisOscuro);
-	margin-right: .5rem;
-}
-.cabecera-tour .resumen-tour ul li p span{
-	font-weight: 700;
+	justify-content: space-between;
 }
 @media only screen and (min-width: 768px){
 	.cabecera-tour{
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto;
+		grid-gap: 2rem;
 	}
-	.cabecera-tour .imagen-tour{
-		min-width: 48rem;
-		margin-right: 2.5rem;
+	.cabecera-tour .resumen-tour{
+		grid-column: 1 / 3;
 	}
 }
 @media only screen and (min-width: 1200px){
 	.cabecera-tour{
-		flex-wrap: nowrap;
+		grid-template-columns: 45% 50%;
+		grid-template-rows: 20.3rem 20.3rem;
+		grid-template-areas: 
+		"imagen precio"
+		"imagen resumen"
+	}
+	.cabecera-tour .imagen-tour{
+		grid-area: imagen;
+		max-width: 48rem;
+	}
+	.cabecera-tour .precio-desde{
+		grid-area: precio;
 	}
 	.cabecera-tour .resumen-tour{
-		flex: 0 0 calc(100% - 48rem);
+		grid-area: resumen;
 	}
 }
-.contenido-tour img{
-	border-radius: 2rem !important;
+
+.cabecera-tour img{
+	border-radius: 2rem;
 }
 .contenido{
 	font-family: var(--fuenteSecundaria);
@@ -576,6 +607,14 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
     background: #000;
     transform: translateX(-500%);
     border-radius: 2rem;
+}
+.wp-block-kadence-tabs .kt-tabs-title-list{
+	display: block !important;
+}
+@media only screen and (min-width: 870px){
+	.wp-block-kadence-tabs .kt-tabs-title-list{
+		display: flex !important;
+	}
 }
 /*
 	PRECIOS TOURS

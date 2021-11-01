@@ -9,8 +9,14 @@
 
 
 		</section>
+
+		<!--  Inicio formulario de busqueda -->
+			<?php get_search_form(); ?>
+		<!-- Fin formulario de busqueda -->
+
 		<!-- Lista de todos los tours -->
-		<?php get_template_part('templates/list', 'tours'); ?>
+			<?php get_template_part('templates/list', 'tours'); ?>
+		<!-- Fin de la lita de todos los tours -->
 	</div>
 
 <?php get_footer(); ?>

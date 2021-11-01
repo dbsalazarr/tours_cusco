@@ -1,4 +1,13 @@
 <!-- Lista de tours de 1 a 30 días -->
+	<?php
+		if( is_page('tours') ) {
+			$cantidadTours = -1;
+			$enlace = "";
+		}else{
+			$cantidadTours = 7;
+			$enlace = "<p class='text-center'><a href='https://www.machupicchutourscusco.com/tours' class='all-tours'>Ver todos los tours</a></p>";
+		}
+	?>
 	<section class="tours">
 		<h2 class="titulo-seccion text-center">
 			Tours de 1 a 25 días en todo Perú
@@ -7,7 +16,7 @@
 		<?php
 			$args = array(
 				'post_type' => 'tour',
-				'posts_per_page' => -1,
+				'posts_per_page' => $cantidadTours,
 				'category_name' => 'tour 1 a 30 dias',
 				'order' => 'ASC'
 			);
@@ -19,19 +28,16 @@
 				<article class="tours-30 list-tour imagen-contenedor">
 					<div class="image-tour">
 						<a href="<?php the_permalink(); ?>">	<?php the_post_thumbnail(); ?> </a>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
+						<span class="duracion"><b> <i class="fas fa-clock" style="margin-right: .5rem;"></i> </b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
 						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
 						<p class="precio"><b>Desde: </b>  <span> <?php echo "$ ". get_field('precio');?> </span> </p>
-
-						<!-- <hr> -->
-						<!-- <a href="<?php the_permalink(); ?>" class="boton primario texto-blanco ver-tour"> Ver Tour </a> -->
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		</div>
-
+		<?php echo $enlace; ?>
 	</section>
 
 	<!-- Fin de la lista de 1 a 30 días -->
@@ -44,7 +50,7 @@
 		<?php
 			$args = array(
 				'post_type' => 'tour',
-				'posts_per_page' => -1,
+				'posts_per_page' => $cantidadTours,
 				'category_name' => 'destinos peru',
 				'order' => 'ASC'
 			);
@@ -56,7 +62,7 @@
 				<article class="tours-30 list-tour">
 					<div class="image-tour">
 						<a href="<?php the_permalink(); ?> "> <?php the_post_thumbnail(); ?> </a>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
+						<span class="duracion"><b><i class="fas fa-clock" style="margin-right: .5rem;"></i></b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
 						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
@@ -65,6 +71,7 @@
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		</div>
+		<?php echo $enlace; ?>
 	</section>
 	<!-- Fin lista de tours de los diferentes destinos del Perú -->
 
@@ -76,7 +83,7 @@
 		<?php
 			$args = array(
 				'post_type' => 'tour',
-				'posts_per_page' => -1,
+				'posts_per_page' => $cantidadTours,
 				'category_name' => 'clasicos cusco',
 				'order' => 'ASC'
 			);
@@ -88,7 +95,7 @@
 				<article class="tours-30 list-tour">
 					<div class="image-tour">
 						<a href="<?php the_permalink(); ?> ">	<?php the_post_thumbnail(); ?> </a>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
+						<span class="duracion"><b><i class="fas fa-clock" style="margin-right: .5rem;"></i></b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
 						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
@@ -97,6 +104,7 @@
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		</div>
+		<?php echo $enlace; ?>
 	</section>
 	<!-- Fin destinos clasicos en Cusco -->
 
@@ -108,7 +116,7 @@
 		<?php
 			$args = array(
 				'post_type' => 'tour',
-				'posts_per_page' => -1,
+				'posts_per_page' => $cantidadTours,
 				'category_name' => 'camino inca',
 				'order' => 'ASC'
 			);
@@ -120,7 +128,7 @@
 				<article class="tours-30 list-tour">
 					<div class="image-tour">
 						<a href="<?php the_permalink(); ?> ">	<?php the_post_thumbnail(); ?> </a>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
+						<span class="duracion"><b><i class="fas fa-clock" style="margin-right: .5rem;"></i></b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
 						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
@@ -129,6 +137,7 @@
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		</div>
+		<?php echo $enlace; ?>
 	</section>
 	<!-- Fin Camino Inca - Trekking a Machu Picchu-->
 
@@ -140,7 +149,7 @@
 		<?php
 			$args = array(
 				'post_type' => 'tour',
-				'posts_per_page' => -1,
+				'posts_per_page' => $cantidadTours,
 				'category_name' => 'aventura en cusco',
 				'order' => 'ASC'
 			);
@@ -152,7 +161,7 @@
 				<article class="tours-30 list-tour">
 					<div class="image-tour">
 						<a href="<?php the_permalink(); ?> ">	<?php the_post_thumbnail(); ?> </a>
-						<span class="duracion"><b>Duración:</b> <?php the_field("duracion_tour")?> </span>
+						<span class="duracion"><b><i class="fas fa-clock" style="margin-right: .5rem;"></i></b> <?php the_field("duracion_tour")?> </span>
 					</div>
 					<div class="descripcion-tour">
 						<h4 class="titulo"> <a href="<?php the_permalink();?>"> <?php the_title(); ?> </a></h4>
@@ -161,5 +170,6 @@
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		</div>
+		<?php echo $enlace; ?>
 	</section>
 	<!-- Fin Tours de Aventura en Cusco y Alrededores -->
