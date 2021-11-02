@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6{
 	font-family: var(--fuentePrincipal);
 	margin: 2rem 0;
 }
-h1{ font-size: 4.8rem; }
+h1{ font-size: 3.8rem; }
 h2{ font-size: 4rem; }
 h3{ font-size: 3.2rem; }
 h4{ font-size: 2.4rem; }
@@ -82,6 +82,9 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 	max-width: 192rem;
 	width: 100%;
 	margin: 0 auto;
+}
+@media only screen and (min-width: 960px){
+	h1{ font-size: 4.8rem; }
 }
 /* 
 	UTILITARIOS
@@ -308,6 +311,10 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 }
 .contenido-principal .detalles h4 a{
 	color: var(--blanco);
+}
+.contenido-principal .detalles b{
+    font-size: 2.4rem;
+    text-shadow: 2px 5px 2px rgba(0,0,0,.25);
 }
 @media only screen and (min-width: 1024px){
 	.contenido-principal .escritorio{
@@ -616,6 +623,17 @@ p{ font-size: 1.7rem; line-height: 3.5rem; margin: 2rem 0;}
 		display: flex !important;
 	}
 }
+@media only screen and (min-width: 690px){
+	.tour-recomendados ul{
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+	}
+}
+.tour-recomendados ul li{
+		margin-bottom: 1rem;
+	}
 /*
 	PRECIOS TOURS
 */

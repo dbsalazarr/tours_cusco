@@ -55,12 +55,28 @@
 			</header>
 			<div class="contenido contenido-tour">
 				<?php the_content(); ?>
-			</div>
-			<footer>
-				<h4>También puede visitar: </h4>
-			</footer>
-			
+			</div>			
 		<?php endwhile;?>
+		<footer>
+				<h4>También puede visitar: </h4>
+				<?php 
+					$args = array(
+						'post_type' => 'tour',
+						'post_per_page' => 10,
+						'orderby' => 'rand'
+					);
+
+					$recomendados = new WP_Query($args);
+				?>
+				<div class="tour-recomendados">
+					<ul>
+						<?php while($recomendados->have_posts()) : $recomendados->the_post(); ?>
+							<li> <i class="fas fa-suitcase-rolling"></i> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></li>
+						<?php endwhile; wp_reset_postdata(); ?>
+					</ul>
+				</div>
+				
+		</footer>
 	</article>
 
 <?php get_footer(); ?>

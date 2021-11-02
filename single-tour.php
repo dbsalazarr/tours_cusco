@@ -51,7 +51,8 @@
 			<div class="contenido contenido-tour extenso">
 				<?php the_content(); ?>
 			</div>
-			<footer>
+		<?php endwhile;?>
+		<footer>
 				<h4>También puede visitar: </h4>
 				<?php 
 					$args = array(
@@ -70,8 +71,7 @@
 					</ul>
 				</div>
 				
-			</footer>
-		<?php endwhile;?>
+		</footer>
 	</article>
 
 <?php get_footer(); ?>

@@ -20,7 +20,7 @@
 				<article class="<?php echo 'main imagen-contenedor portada-'.$i ?>">
 					<div class="detalles">
 						<h4> <a href="<?php the_permalink(); ?>"><?php the_title(); ?> </a></h4>
-						<p><?php echo "Desde $ ". get_field('precio') ?></p>
+						<p>Desde <?php echo " <b>$ ". get_field('precio') ."</b>"?></p>
 						<a href="<?php the_permalink(); ?>" class="boton primario texto-blanco"> Explorar Más</a>
 					</div>
 					<?php 
